@@ -1,18 +1,38 @@
+import { BrowserRouter, Route, Routes } from "react-router-dom";
 import "./App.css";
-import ProductCard from "./components/productCard";
-
+import "./index.css";
+import HomePage from "./pages/homePage";
+import LoginPage from "./pages/loginPage";
+import RegisterPage from "./pages/registerPage";
+import AdminPage from "./pages/adminPage";
+import ProductsPage from "./pages/productsPage";
+import AboutPage from "./pages/aboutPage";
+import ContactsPage from "./pages/contactsPage";
+import Header from "./components/header";
 
 
 function App(){
   return(
-    <>
-       <ProductCard name="Laptop" price="100,000.00" image="https://picsum.photos/id/1/200/300"/>
-       <ProductCard name="Desktop" price="90,000.00" image="https://picsum.photos/id/2/200/300"/>
-       <ProductCard name="Mobile Phone" price="70,000.00" image="https://picsum.photos/id/3/200/300"/>
-       <ProductCard name="Calculator" price="20,000.00" image="https://picsum.photos/id/4/200/300"/>
-       <ProductCard name="Ipad" price="200,000.00" image="https://picsum.photos/id/5/200/300"/>
-    </>
 
+    <BrowserRouter>
+     <div className="w-full h-screen bg-primary">
+      <Header/>
+
+      <Routes>
+        <Route path="/home" element={<HomePage/>}/>
+        <Route path="/login" element={<LoginPage/>}/>
+        <Route path="/register" element={<RegisterPage/>}/>
+        <Route path="/admin/*" element={<AdminPage/>}/>
+        <Route path="/products" element={<ProductsPage/>}/>
+        <Route path="/about" element={<AboutPage/>}/>
+        <Route path="/contacts" element={<ContactsPage/>}/>
+        <Route path="/*" element={<h1>Page Not Found</h1>}/>
+
+      </Routes>
+
+     </div>
+    </BrowserRouter>
+   
   );
 }
 
