@@ -8,15 +8,18 @@ import AdminPage from "./pages/adminPage";
 import ProductsPage from "./pages/productsPage";
 import AboutPage from "./pages/aboutPage";
 import ContactsPage from "./pages/contactsPage";
-import Header from "./components/header";
+import { Toaster } from "react-hot-toast";
 
 
 function App(){
   return(
 
     <BrowserRouter>
+
+    {/* React-hot-toast notification library */}
+    <Toaster position="top-right"/>
      <div className="w-full h-screen bg-primary">
-      <Header/>
+    
 
       <Routes>
         <Route path="/home" element={<HomePage/>}/>
