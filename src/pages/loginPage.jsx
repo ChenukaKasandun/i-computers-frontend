@@ -19,9 +19,17 @@ export default function LoginPage(){
                   const res = await axios.post(import.meta.env.VITE_BACKEND_URL+"/users/login", {
                     email : email , password : password})
                   console.log(res.data);
+
+                // Storing the value of the token in the localStorage
+                localStorage.setItem("token",res.data.token);
+
+                // Accessing that token
+                const token = localStorage.getItem("token");
+
+
+
                   if (res.data.message === "Login Successfull..!") {
-                    
-                  
+                
                     //  Forwarding based on the user role
                     if (res.data.role == "admin") {
                         navigate("/admin");
